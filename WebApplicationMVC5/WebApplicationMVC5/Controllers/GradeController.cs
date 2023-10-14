@@ -7,7 +7,7 @@ using WebApplicationMVC5.Models;
 
 namespace WebApplicationMVC5.Controllers
 {
-    public class GradesController : Controller
+    public class GradeController : Controller
     {
         #region Method for Listing Grades
 

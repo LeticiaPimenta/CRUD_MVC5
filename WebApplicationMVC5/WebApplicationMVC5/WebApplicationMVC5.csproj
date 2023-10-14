@@ -130,10 +130,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\DisciplineController.cs" />
-    <Compile Include="Controllers\GradesController.cs" />
+    <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProfessorsController.cs" />
-    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,9 +170,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AngularJS\Courses\Controller.js" />
-    <Content Include="AngularJS\Courses\Module.js" />
-    <Content Include="AngularJS\Courses\Service.js" />
+    <Content Include="AngularJS\Grade\Grade.Controller.js" />
+    <Content Include="AngularJS\Grade\Grade.Service.js" />
+    <Content Include="AngularJS\Discipline\Discipline.Controller.js" />
+    <Content Include="AngularJS\Discipline\Discipline.Service.js" />
+    <Content Include="AngularJS\Course\Course.Controller.js" />
+    <Content Include="AngularJS\Module.js" />
+    <Content Include="AngularJS\Course\Course.Service.js" />
     <Content Include="App_Data\Courses.mdf" />
     <Content Include="App_Data\Courses_log.ldf">
       <DependentUpon>Courses.mdf</DependentUpon>

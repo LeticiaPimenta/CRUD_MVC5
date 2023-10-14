@@ -7,18 +7,18 @@ using WebApplicationMVC5.Models;
 
 namespace WebApplicationMVC5.Controllers
 {
-    public class ProfessorsController : Controller
+    public class StudentController : Controller
     {
-        #region Method for Listing Professors
+        #region Method for Listing Students
 
-        //GET Professors/GetProfessors
-        public JsonResult GetProfessors()
+        //GET Students/GetStudents
+        public JsonResult GetStudents()
         {
             using (var db = new CoursesEntities())
             {
-                List<Professors> listingProfessors = db.Professors.ToList();
+                List<Students> listingStudents = db.Students.ToList();
 
-                return Json(listingProfessors);
+                return Json(listingStudents);
             }
         }
 

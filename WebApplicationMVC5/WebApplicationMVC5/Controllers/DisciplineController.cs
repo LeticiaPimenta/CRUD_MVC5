@@ -12,7 +12,7 @@ namespace WebApplicationMVC5.Controllers
         #region Method for Listing Disciplines
 
         //GET Disciplines/GetDisciplines
-        public JsonResult GetCourse()
+        public JsonResult GetDisciplines()
         {
             using (var db = new CoursesEntities())
             {
