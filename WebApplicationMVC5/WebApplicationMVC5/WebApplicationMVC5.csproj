@@ -170,6 +170,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJS\Student\Student.Controller.js" />
+    <Content Include="AngularJS\Student\Student.Service.js" />
+    <Content Include="AngularJS\Professor\Professor.Controller.js" />
+    <Content Include="AngularJS\Professor\Professor.Service.js" />
     <Content Include="AngularJS\Grade\Grade.Controller.js" />
     <Content Include="AngularJS\Grade\Grade.Service.js" />
     <Content Include="AngularJS\Discipline\Discipline.Controller.js" />
