@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoursesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Course Id" />
+    </Key>
+    <Property Name="Course Id" Type="int" Nullable="false" />
+    <Property Name="Course Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Discipline">
+    <Key>
+      <PropertyRef Name="Discipline Id" />
+    </Key>
+    <Property Name="Discipline Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Discipline Name" Type="nvarchar" MaxLength="50" />
+    <Property Name=" Professor ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Grades Id" />
+    </Key>
+    <Property Name="Grades Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Discipline Id" Type="int" />
+    <Property Name="Student Id" Type="int" />
+    <Property Name="Student Grade" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Professors">
+    <Key>
+      <PropertyRef Name="Professor Id" />
+    </Key>
+    <Property Name="Professor Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name=" Professor Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Date of Birth" Type="date" />
+    <Property Name="Salary" Type="money" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Student Id" />
+    </Key>
+    <Property Name="Student Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Student Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Student Date of Birth" Type="date" />
+    <Property Name="Student ID Number" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="CoursesModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professors" EntityType="Self.Professors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

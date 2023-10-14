@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CoursesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="Course Id" />
+          </Key>
+          <Property Name="Course Id" Type="int" Nullable="false" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="Discipline Id" />
+          </Key>
+          <Property Name="Discipline Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discipline Name" Type="nvarchar" MaxLength="50" />
+          <Property Name=" Professor ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="Grades Id" />
+          </Key>
+          <Property Name="Grades Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discipline Id" Type="int" />
+          <Property Name="Student Id" Type="int" />
+          <Property Name="Student Grade" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Professors">
+          <Key>
+            <PropertyRef Name="Professor Id" />
+          </Key>
+          <Property Name="Professor Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name=" Professor Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date of Birth" Type="date" />
+          <Property Name="Salary" Type="money" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Student Id" />
+          </Key>
+          <Property Name="Student Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Student Date of Birth" Type="date" />
+          <Property Name="Student ID Number" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="CoursesModelStoreContainer">
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Professors" EntityType="Self.Professors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoursesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="Course_Id" />
+          </Key>
+          <Property Name="Course_Id" Type="Int32" Nullable="false" />
+          <Property Name="Course_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="Discipline_Id" />
+          </Key>
+          <Property Name="Discipline_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discipline_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_Professor_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="Grades_Id" />
+          </Key>
+          <Property Name="Grades_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discipline_Id" Type="Int32" />
+          <Property Name="Student_Id" Type="Int32" />
+          <Property Name="Student_Grade" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Professors">
+          <Key>
+            <PropertyRef Name="Professor_Id" />
+          </Key>
+          <Property Name="Professor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Professor_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date_of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Student_Id" />
+          </Key>
+          <Property Name="Student_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Date_of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Student_ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="CoursesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Courses" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" />
+          <EntitySet Name="Professors" EntityType="Self.Professors" />
+          <EntitySet Name="Students" EntityType="Self.Students" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoursesModelStoreContainer" CdmEntityContainer="CoursesEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="CoursesModel.Courses">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Course_Id" ColumnName="Course Id" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discipline">
+            <EntityTypeMapping TypeName="CoursesModel.Discipline">
+              <MappingFragment StoreEntitySet="Discipline">
+                <ScalarProperty Name="Discipline_Id" ColumnName="Discipline Id" />
+                <ScalarProperty Name="Discipline_Name" ColumnName="Discipline Name" />
+                <ScalarProperty Name="C_Professor_ID" ColumnName=" Professor ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="CoursesModel.Grades">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="Grades_Id" ColumnName="Grades Id" />
+                <ScalarProperty Name="Discipline_Id" ColumnName="Discipline Id" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student Id" />
+                <ScalarProperty Name="Student_Grade" ColumnName="Student Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professors">
+            <EntityTypeMapping TypeName="CoursesModel.Professors">
+              <MappingFragment StoreEntitySet="Professors">
+                <ScalarProperty Name="Professor_Id" ColumnName="Professor Id" />
+                <ScalarProperty Name="C_Professor_Name" ColumnName=" Professor Name" />
+                <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="CoursesModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Student_Id" ColumnName="Student Id" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+                <ScalarProperty Name="Student_Date_of_Birth" ColumnName="Student Date of Birth" />
+                <ScalarProperty Name="Student_ID_Number" ColumnName="Student ID Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

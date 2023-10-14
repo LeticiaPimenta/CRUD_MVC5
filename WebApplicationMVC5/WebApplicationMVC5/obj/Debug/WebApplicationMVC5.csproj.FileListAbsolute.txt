@@ -74,3 +74,7 @@ C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicati
 C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\obj\Debug\WebApplicationMVC5.csproj.CopyComplete
 C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\obj\Debug\WebApplicationMVC5.dll
 C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\obj\Debug\WebApplicationMVC5.pdb
+C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\bin\EntityFramework.dll
+C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\bin\EntityFramework.SqlServer.dll
+C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\bin\EntityFramework.xml
+C:\Users\l.pimenta.gaspar\source\repos\CRUD_MVC5\WebApplicationMVC5\WebApplicationMVC5\bin\EntityFramework.SqlServer.xml

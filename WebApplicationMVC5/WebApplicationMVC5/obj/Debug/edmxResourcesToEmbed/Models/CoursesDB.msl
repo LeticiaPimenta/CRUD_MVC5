@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoursesModelStoreContainer" CdmEntityContainer="CoursesEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="CoursesModel.Courses">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Course_Id" ColumnName="Course Id" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discipline">
+      <EntityTypeMapping TypeName="CoursesModel.Discipline">
+        <MappingFragment StoreEntitySet="Discipline">
+          <ScalarProperty Name="Discipline_Id" ColumnName="Discipline Id" />
+          <ScalarProperty Name="Discipline_Name" ColumnName="Discipline Name" />
+          <ScalarProperty Name="C_Professor_ID" ColumnName=" Professor ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="CoursesModel.Grades">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="Grades_Id" ColumnName="Grades Id" />
+          <ScalarProperty Name="Discipline_Id" ColumnName="Discipline Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student Id" />
+          <ScalarProperty Name="Student_Grade" ColumnName="Student Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professors">
+      <EntityTypeMapping TypeName="CoursesModel.Professors">
+        <MappingFragment StoreEntitySet="Professors">
+          <ScalarProperty Name="Professor_Id" ColumnName="Professor Id" />
+          <ScalarProperty Name="C_Professor_Name" ColumnName=" Professor Name" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="CoursesModel.Students">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="Student_Id" ColumnName="Student Id" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+          <ScalarProperty Name="Student_Date_of_Birth" ColumnName="Student Date of Birth" />
+          <ScalarProperty Name="Student_ID_Number" ColumnName="Student ID Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
