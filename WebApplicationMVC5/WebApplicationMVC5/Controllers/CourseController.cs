@@ -10,6 +10,8 @@ namespace WebApplicationMVC5.Controllers
     public class CourseController : Controller
     {
         #region Method for Listing Courses
+
+        //GET Courses/GetCourse
         public JsonResult GetCourse()
         {
             using (var db = new CoursesEntities())
