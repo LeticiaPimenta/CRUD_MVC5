@@ -170,6 +170,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJS\Courses\Controller.js" />
+    <Content Include="AngularJS\Courses\Module.js" />
+    <Content Include="AngularJS\Courses\Service.js" />
     <Content Include="App_Data\Courses.mdf" />
     <Content Include="App_Data\Courses_log.ldf">
       <DependentUpon>Courses.mdf</DependentUpon>
