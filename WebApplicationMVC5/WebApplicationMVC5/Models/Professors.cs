@@ -15,7 +15,7 @@ namespace WebApplicationMVC5.Models
     public partial class Professors
     {
         public int Professor_Id { get; set; }
-        public string C_Professor_Name { get; set; }
+        public string Professor_Name { get; set; }
         public Nullable<System.DateTime> Date_of_Birth { get; set; }
         public Nullable<decimal> Salary { get; set; }
     }

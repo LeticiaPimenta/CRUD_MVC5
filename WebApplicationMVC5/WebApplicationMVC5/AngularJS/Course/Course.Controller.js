@@ -6,7 +6,7 @@
   * Author: Leticia Pimenta
   */
 
-coursesApp.controller('courseCtrl', function ($scope, courseService) {
+courseApp.controller('courseCtrl', function ($scope, courseService) {
 
     loadingCourses();
 
@@ -19,5 +19,93 @@ coursesApp.controller('courseCtrl', function ($scope, courseService) {
             function () {
                 alert("An error occurred while trying to list all courses!");
             });
+    }
+
+    //Method responsible for adding each property of a New course:
+    $scope.AddCourse = function () {
+
+        var course = {
+            couseId: $scope.courseId,
+            courseName: $scope.name
+        };
+
+        var addInfos = courseService.AddCourse(course);
+
+        addInfos.then(function (d) {
+            if (d.data.success === true) {
+                loadingCourses();
+                alert("Course Added Successfully!");
+
+                $scope.clearData();
+            } else { alert("Course not Added!"); }
+        },
+            function () {
+                alert("An error occurred while trying to add a New Course!");
+            });
+    }
+
+    //Clear the fields after inserting data into db:
+    $scope.clearData = function () {
+        $scope.couseId = "";
+        $scope.couseName = "";
+    }
+
+    //Method responsible for updating Course by Id:
+    $scope.updateCoursebyId = function (course) {
+
+        $scope.UpdateCourseId = course.courseId;
+        $scope.UpdateCourseName = course.courseName;
+
+    }
+
+    //Method responsible for rescuing data for deletion from the Course:
+    $scope.deleteCourseById = function (course) {
+        $scope.UpdateCourseId = course.courseId;
+        $scope.UpdateCourseName = course.courseName;
+    }
+
+    //Method responsible for updating Course data:
+    $scope.updateCourse = function () {
+        var course = {
+            couseId: $scope.UpdateCourseId,
+            courseName: $scope.UpdateCourseName
+        };
+        var updateInfos = courseService.updateCourse(course);
+        updateInfos.then(function (d) {
+            if (d.data.success === true) {
+                loadingCourses();
+                alert("Course Updated Successfully!");
+                $scope.clearUpdatedData();
+            }
+            else {
+                alert("Course not updated");
+            }
+        },
+            function () {
+                alert("An error occurred when trying to update the Course!");
+            });
+    }
+
+    //Method responsible for Clearing Data after Updating Course:
+    $scope.clearUpdatedData = function () {
+        $scope.UpdateCourseId = '';
+        $scope.UpdateCourseName = '';
+    }
+
+    //Method responsible for deleting the Course by Id:
+    $scope.deleteCourse = function (UpdateCourseId) {
+
+        var deleteInfos = courseService.deleteCourse($scope.UpdateCourseId);
+        deleteInfos.then(function (d) {
+
+            if (d.data.success === true) {
+                loadingCourses();
+
+                alert("Course Deleted Successfully!");
+            }
+            else {
+                alert("Course not excluded!");
+            }
+        });
     }
 });
