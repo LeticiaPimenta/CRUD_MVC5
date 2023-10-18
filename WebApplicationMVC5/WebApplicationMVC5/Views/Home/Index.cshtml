@@ -1,8 +1,8 @@
-﻿<div class="container" ng-controller="gradeCtrl">
+﻿<div class="container" ng-controller="courseCtrl">
     <div class="panel-heading">Listing Courses</div>
 
     <div class="panel-body">
-        <button type="button" class="btn btn-info" data-target="#NewCourse" data-toggle="nodal">
+        <button type="button" class="btn btn-info" data-target="#AddCourse" data-toggle="modal">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </div>
@@ -10,39 +10,123 @@
     <table class="table table-bordered">
         <thead style="background-color: burlywood;">
             <tr>
-                <th>ID Course</th>
-                <th>Nome</th>
+                <th>Curso</th>
+                <th>Número de Professores</th>
+                <th>Número de Alunos</th>
+                <th>Média de Notas</th>
+                <th>Ação</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="course in Grades">
-                <td>{{course}}</td>
+            <tr ng-repeat="course in Courses">
                 <td>{{course.Course_Name}}</td>
-                <td style="width: 200px">
-                    <a href="#" class="btn btn-info">Atualizar</a>
-                    <a href="#" class="btn btn-danger">Excluir</a>
+                <td>{{course}}</td>
+                <td>{{course.Number_of_Students}}</td>
+                <td>{{course.Grade_Avarage}}</td>
+                <td class="text-center" style="width: 200px;">
+                    <a href="#"
+                       data-target="#UpdateCourse"
+                       data-toggle="modal" class="btn btn-success"
+                       ng-click="updateCoursebyId(course)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a href="#"
+                       data-target="#DeleteCourse"
+                       id="btnExcluir"
+                       data-toggle="modal" class="btn btn-danger"
+                       ng-click="deleteCourseById(course)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <div class="modal" id="NewCourse" role="dialog">
+    @* INÍCIO MODAL - Add Course *@
+    <div class="modal" id="AddCourse" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="text-info">Adicionar Funcionario</h3>
+                    <h3 class="text-info">Add Course</h3>
                 </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" name="AdicionarNovoFuncionarioForm"></form>
+                <div class="modal-body" style="margin-left: 20px">
+                    <form class="form-horizontal" name="AddNewCourseForm">
+                        <div class="form-group">
+                            <input class="form-control" readonly="readonly" name="courseId" type="hidden" placeholder="Id Course" />
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" ng-model="Course_Name" placeholder="Name Course" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSalvar" data-dismiss="modal" ng-click="addCourse()">Adicionar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearData()">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
+    @* FIM MODAL - Add Course *@
+
+    @* INÍCIO MODAL - Update Course *@
+    <div class="modal" id="UpdateCourse" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-info">Update Course</h3>
+                </div>
+                <div class="modal-body" style="margin-left: 20px">
+                    <form class="form-horizontal" name="UpdateForm">
+                        <div class="form-group">
+                            <input class="form-control" readonly="readonly" name="CourseId" ng-model="UpdatedCourseId" type="hidden" placeholder="Course Id" />
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info"> Name</label>
+                            <input class="form-control" name="Nome" ng-model="UpdatedName" type="text" placeholder="Name" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnUpdate" data-dismiss="modal" ng-click="updateCourse()">
+                        Update
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* FIM MODAL - Update Course *@
+
+    @* INÍCIO MODAL - Delete Course *@
+
+    <div class="modal" role="dialog" id="DeleteCourse">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-info">Are you sure you want to delete the Course?</h3>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p>Course ID : {{UpdatedCourseId}}</p>
+                        <p>Course Name : {{UpdatedName}}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteCourse(UpdatedCourseId)">Excluir</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* FIM MODAL - Delete Course *@
+
 </div>
 
 @section scripts {
     <script src="~/AngularJs/Module.js"></script>
-    <script src="~/AngularJS/Grade/Grade.Service.js"></script>
-    <script src="~/AngularJS/Grade/Grade.Controller.js"></script>
+    <script src="~/AngularJS/Course/Course.Service.js"></script>
+    <script src="~/AngularJS/Course/Course.Controller.js"></script>
 
 }

@@ -18,7 +18,7 @@ namespace WebApplicationMVC5.Controllers
             {
                 List<Grades> listingGrades = db.Grades.ToList();
 
-                return Json(listingGrades);
+                return Json(listingGrades, JsonRequestBehavior.AllowGet);
             }
         }
 

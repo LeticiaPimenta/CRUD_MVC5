@@ -6,9 +6,38 @@
   * Author: Leticia Pimenta
   */
 
-disciplineApp.service('disciplineService', function ($http) {
+courseApp.service('disciplineService', function ($http) {
 
     this.getAllDisciplines = function () {
         return $http.get("/Discipline/GetDisciplines");
+    }
+
+    //Method responsible for Add Discipline: CREATE
+    this.addDiscipline = function (discipline) {
+
+        var request = $http({
+            method: 'post',
+            url: '/Discipline/addDiscipline',
+            data: discipline
+        });
+
+        return request;
+    }
+
+    //Method responsible for Updating Discipline By Id: Update
+    this.updateDiscipline = function (discipline) {
+
+        var requestUpdated = $http({
+            method: 'post',
+            url: '/Discipline/UpdateDiscipline',
+            data: discipline
+        });
+        return requestUpdated;
+    }
+
+    //Method responsible for Deleting Discipline By Id: Delete
+    this.deleteDiscipline = function (UpdatedDisciplineId) {
+
+        return $http.post('/Discipline/DeleteDiscipline/' + UpdatedDisciplineId);
     }
 })

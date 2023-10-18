@@ -6,9 +6,38 @@
   * Author: Leticia Pimenta
   */
 
-studentApp.service('studentService', function ($http) {
+courseApp.service('studentService', function ($http) {
 
     this.getAllStudents = function () {
         return $http.get("/Student/GetStudents");
+    }
+
+    //Method responsible for Add Student: CREATE
+    this.addStudent = function (student) {
+
+        var request = $http({
+            method: 'post',
+            url: '/Student/addStudent',
+            data: student
+        });
+
+        return request;
+    }
+
+    //Method responsible for Updating Student By Id: Update
+    this.updateStudent = function (student) {
+
+        var requestUpdated = $http({
+            method: 'post',
+            url: '/Student/UpdateStudent',
+            data: student
+        });
+        return requestUpdated;
+    }
+
+    //Method responsible for Deleting Student By Id: Delete
+    this.deleteStudent = function (UpdatedStudentId) {
+
+        return $http.post('/Student/DeleteStudent/' + UpdatedStudentId);
     }
 })

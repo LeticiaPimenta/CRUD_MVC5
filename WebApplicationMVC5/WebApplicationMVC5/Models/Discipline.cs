@@ -16,6 +16,6 @@ namespace WebApplicationMVC5.Models
     {
         public int Discipline_Id { get; set; }
         public string Discipline_Name { get; set; }
-        public Nullable<int> C_Professor_ID { get; set; }
+        public Nullable<int> Professor_ID { get; set; }
     }
 }

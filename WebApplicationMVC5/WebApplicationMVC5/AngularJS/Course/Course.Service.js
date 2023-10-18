@@ -12,32 +12,32 @@ courseApp.service('courseService', function ($http) {
         return $http.get("/Course/GetCourse");
     }
 
-    //Método responsável por Adicionar Funcionário: CREATE
-    this.adicionarFuncionario = function (funcionario) {
+    //Method responsible for Add Course: CREATE
+    this.addCourse = function(course) {
 
         var request = $http({
             method: 'post',
-            url: '/Funcionario/AdicionarFuncionario',
-            data: funcionario
+            url: '/Course/addCourse',
+            data: course
         });
 
         return request;
     }
 
-    //Método responsável por Atualizar Funcionário Por Id: Update
-    this.atualizarFuncionario = function (funcionario) {
+    //Method responsible for Updating Course By Id: Update
+    this.updateCourse = function (course) {
 
-        var requestAtualizado = $http({
+        var requestUpdated = $http({
             method: 'post',
-            url: '/Funcionario/AtualizarFuncionario',
-            data: funcionario
+            url: '/Course/UpdateCourse',
+            data: course
         });
-        return requestAtualizado;
+        return requestUpdated;
     }
 
-    //Método responsável por Excluir Funcionário Por Id: Delete
-    this.excluirFuncionario = function (AtualizadoFuncionarioId) {
+    //Method responsible for Deleting Course By Id: Delete
+    this.deleteCourse = function (UpdatedCourseId) {
 
-        return $http.post('/Funcionario/ExcluirFuncionario/' + AtualizadoFuncionarioId);
+        return $http.post('/Course/DeleteCourse/' + UpdatedCourseId);
     }
 })

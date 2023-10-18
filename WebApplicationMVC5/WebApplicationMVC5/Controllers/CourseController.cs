@@ -40,6 +40,7 @@ namespace WebApplicationMVC5.Controllers
                     return Json(new { success = true });
                 }
             }
+
             return Json(new { success = false });
         }
 

@@ -23,10 +23,10 @@ courseApp.controller('courseCtrl', function ($scope, courseService) {
 
     //Method responsible for adding each property of a New course:
     $scope.AddCourse = function () {
-
+        console.log("Chamou AddCourse");
         var course = {
-            couseId: $scope.courseId,
-            courseName: $scope.name
+            couseId: $scope.Course_Id,
+            courseName: $scope.Course_Name
         };
 
         var addInfos = courseService.AddCourse(course);
